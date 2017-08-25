@@ -11,7 +11,7 @@ var utils = require('../../utils.js');
  */
 function diceroll(msg) {
   var result = utils.random(6);
-  msg.reply('you rolled a ' + result + '.', {file : '../assets/images/dice/dice' + result + '.png'});
+  msg.reply('you rolled a ' + result + '.', {file : './assets/images/dice/dice' + result + '.png'});
 }
 
 module.exports = {

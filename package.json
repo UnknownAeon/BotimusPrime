@@ -1,0 +1,16 @@
+{
+  "name": "Botimus-Prime",
+  "version": "1.0.0",
+  "description": "A bot for the 2am gaming discord channel",
+  "main": "./src/bot.js",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "opusscript": "0.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": ""
+  },
+  "author": "Kevin Pfeifle(UnknownAeon)",
+  "license": "ISC"
+}

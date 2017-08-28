@@ -21,7 +21,7 @@ var handleCommand = function(msg) {
     // else if (results.command === '!conch') conch(msg);
     else if (results.command === '!diceroll') commands.diceroll.diceroll(msg, results.args);
     else if (results.command === '!help') commands.help.help(msg, results.args);
-    else if (results.command === '!hotslogs') commands.hots.hotslogs(msg, results.args);
+    else if (results.command === '!hots') commands.hots.hots(msg, results.args);
     else if (results.command === '!insult') commands.insult.insult(msg, results.args);
     else if (results.command === '!memespeak') commands.meme.memeSpeak(msg, results.args);
     else if (results.command === '!ping') msg.reply('Pong!');

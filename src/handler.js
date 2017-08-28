@@ -19,6 +19,7 @@ var handleCommand = function(msg) {
     if (results.command === '!cointoss') commands.cointoss.coinFlip(msg);
     // TODO: Fix the magic conch.
     // else if (results.command === '!conch') conch(msg);
+    else if (results.command === '!exposed') commands.exposed.exposedReply(msg);
     else if (results.command === '!diceroll') commands.diceroll.diceroll(msg, results.args);
     else if (results.command === '!help') commands.help.help(msg, results.args);
     else if (results.command === '!hots') commands.hots.hots(msg, results.args);

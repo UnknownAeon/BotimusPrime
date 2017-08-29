@@ -27,7 +27,7 @@
  }
 
 /**
- * Gets a random number between 1 and the upper limit.
+ * Gets a random number between 0 and the upper limit.
  * @param num the upper limit for the random number.
  * @returns the pseudo-randomly generated number.
  */

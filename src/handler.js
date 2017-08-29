@@ -1,5 +1,6 @@
 /**
  * @author Kevin Pfeifle(UnknownAeon)
+ * @author Andrew Subowo
  * @since 0.2
  */
 const commands = require('./router.js');
@@ -17,15 +18,14 @@ var handleCommand = function(msg) {
     // TODO: Is there any better way of doing this?
     // If the bot was summoned, it will execute the desired task.
     if (results.command === '!cointoss') commands.cointoss.coinFlip(msg);
-    // TODO: Fix the magic conch.
-    // else if (results.command === '!conch') conch(msg);
+    else if (results.command === '!conch') commands.conch.conch(msg);
     else if (results.command === '!exposed') commands.exposed.exposedReply(msg);
     else if (results.command === '!diceroll') commands.diceroll.diceroll(msg, results.args);
+    else if (results.command === '!happysouls') commands.happysouls.happySoulsReply(msg, results.args);
     else if (results.command === '!help') commands.help.help(msg, results.args);
     else if (results.command === '!hots') commands.hots.hots(msg, results.args);
     else if (results.command === '!insult') commands.insult.insult(msg, results.args);
     else if (results.command === '!memespeak') commands.meme.memeSpeak(msg, results.args);
-    else if (results.command === '!happysouls') commands.happysouls.happySoulsReply(msg, results.args);
     else if (results.command === '!ping') msg.reply('Pong!');
     else msg.reply('sorry, I do not recognize that as a valid command. Type !help to see valid commands.');
   })

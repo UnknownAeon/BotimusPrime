@@ -1,8 +1,9 @@
 /**
-* @since 0.2 contributory
-*/
+ * @author Andrew Subowo
+ * @since 0.2 contributory
+ */
 
-var utils = require('..'..'utils.js');
+var utils = require('../../utils.js');
 
 /**
  * Just as an inside joke between our friend group
@@ -11,7 +12,6 @@ var utils = require('..'..'utils.js');
 
 var exposedReply = function(msg) {
     replies = [
-      'you only have ',
       'you\'ve been EXPOSED',
       'i\'m EXPOSING you',
       'i have 403821 subscribers on youtube',

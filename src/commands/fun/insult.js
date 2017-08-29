@@ -35,7 +35,7 @@ function insult(msg, args) {
     msg.reply('A name is required for me to insult someone.\n!insult @user');
     return;
   }
-  var insult = utils.random(insults.length);
+  var insult = utils.random(insults.length) + 1;
   msg.channel.send(args[0] + ', ' + insults[insult], {tts: true});
 }
 

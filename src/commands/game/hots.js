@@ -85,6 +85,7 @@ function hotslogs(msg, args) {
  */
 var scrubHOTSLOGS = function(heroName) {
   // TODO: maintain a list of all valid hero names so there are no errors.
+  // TODO: update the parsing args method so that hero names with spaces are caught.
   var url = 'https://www.hotslogs.com/Sitewide/HeroDetails?Hero=' + heroName;
   return new Promise(function(resolve, reject) {
     // Makes the request to the website.

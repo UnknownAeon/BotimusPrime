@@ -9,7 +9,7 @@ var utils = require('../../utils.js');
   * @param msg The message that was used to summon the bot.
   */
 var coinFlip = function(msg) {
-   var result = utils.random(2);
+   var result = utils.random(2) + 1;
    var winner;
    if (result == 1) winner = 'heads';
    else winner = 'tails';

@@ -9,7 +9,7 @@
  * @returns the pseudo-randomly generated number.
  */
 var random = function(num) {
-  return Math.floor(Math.random() * num) + 1;
+  return Math.floor(Math.random() * num);
 }
 
 module.exports = {

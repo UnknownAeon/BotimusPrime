@@ -27,9 +27,9 @@ var exposedReply = function(msg) {
     // Choose a random reply
     var replySelector = utils.random(replies.length);
     if (replySelector === 0) {
-      msg.reply('you only have ' + games + ' games? lol you broke ass bitch');
+      msg.reply('you only have ' + games + ' games? lol you broke ass bitch',{tts: true});
     } else {
-      msg.reply(replies[replySelector]);
+      msg.reply(replies[replySelector],{tts: true});
     }
 }
 

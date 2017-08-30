@@ -14,7 +14,16 @@ var happySoulsReply = function(msg, args) {
       utils.playAudio('boss_weapons.mp3', msg);
   }
   else if (args[0] == 'praise') {
-      utils.playAudio('praisesun.mp3', msg)
+      utils.playAudio('praisesun.mp3', msg);
+  }
+  else if (args[0] == 'intro') {
+    utils.playAudio('intro.mp3', msg);
+  }
+  else if (args[0] == 'nopenopenope') {
+    utils.playAudio('nopenopenope.mp3', msg);
+  }
+  else if (args[0] == 'regret' || args[0].includes("regret")) {
+    utils.playAudio('regret.mp3', msg);
   }
   if (args.length == 0) {
       msg.reply('Is this toooo eaassyyyy for youuuu?????');

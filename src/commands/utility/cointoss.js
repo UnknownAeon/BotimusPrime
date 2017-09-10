@@ -10,10 +10,8 @@ var utils = require('../../utils.js');
   */
 var coinFlip = function(msg) {
    var result = utils.random(2) + 1;
-   var winner;
-   if (result == 1) winner = 'heads';
-   else winner = 'tails';
-   msg.reply('Flipping coin...\nThe winner is ' + winner + ". ");
+   if (result == 1) msg.reply('Heads!', {file : './assets/images/coin/heads.png'});
+   else msg.reply('Tails!', {file : './assets/images/coin/tails.png'});
  }
 
  module.exports = {

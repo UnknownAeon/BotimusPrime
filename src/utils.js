@@ -4,7 +4,7 @@
  */
 
  /**
-  * Play a specific sound clip as passed in by happySouls
+  * Play a specific sound clip as passed in by an audio function.
   * @param audio string/char set audio String of audio clip\
   * @param msg the message that summoned the bot.
   */
@@ -12,12 +12,12 @@
    var voiceChannel = msg.member.voiceChannel;
    try {
      voiceChannel.join().then(function(connection) {
-       const dispatcher = connection.playFile('./assets/' + audio);
+       const dispatcher = connection.playFile('./assets/audio/' + audio);
        dispatcher.on('end', function(end) {
          voiceChannel.leave();
        });
      }).catch(function(err) {
-       console.log('err');
+       console.log(err);
      });
    }
    catch (err) {

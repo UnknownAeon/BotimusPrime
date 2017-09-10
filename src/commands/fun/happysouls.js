@@ -1,5 +1,6 @@
 /**
  * @author Andrew Subowo
+ * @author Kevin Pfeifle(UnknownAeon)
  * @since 0.2 contributory
  */
 var utils = require('../../utils.js')
@@ -11,19 +12,19 @@ var utils = require('../../utils.js')
  */
 var happySoulsReply = function(msg, args) {
   if (args[0] == 'bossweapons') {
-      utils.playAudio('boss_weapons.mp3', msg);
+      utils.playAudio('happysouls/boss_weapons.mp3', msg);
   }
   else if (args[0] == 'praise') {
-      utils.playAudio('praisesun.mp3', msg);
+      utils.playAudio('/happysouls/praisesun.mp3', msg);
   }
   else if (args[0] == 'intro') {
-    utils.playAudio('intro.mp3', msg);
+    utils.playAudio('happysouls/intro.mp3', msg);
   }
-  else if (args[0] == 'nopenopenope') {
-    utils.playAudio('nopenopenope.mp3', msg);
+  else if (args[0] == 'nope') {
+    utils.playAudio('happysouls/nopenopenope.mp3', msg);
   }
-  else if (args[0] == 'regret' || args[0].includes("regret")) {
-    utils.playAudio('regret.mp3', msg);
+  else if (args[0] == 'regret') {
+    utils.playAudio('happysouls/regret.mp3', msg);
   }
   if (args.length == 0) {
       msg.reply('Is this toooo eaassyyyy for youuuu?????');
@@ -33,4 +34,11 @@ var happySoulsReply = function(msg, args) {
 
 module.exports = {
   happySoulsReply : happySoulsReply
+}
+
+exports.info = {
+  name : "happysouls",
+  usage : "!happysouls <soundbite>",
+  desc : "command the bot to enter your voice channel and play a sound bite from happy souls.",
+  options : "bossweapons, intro, nope, praise, regret"
 }

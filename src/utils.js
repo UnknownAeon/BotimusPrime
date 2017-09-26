@@ -3,28 +3,15 @@
  * @since 0.2
  */
 
- /**
-  * Play a specific sound clip as passed in by an audio function.
-  * @param audio string/char set audio String of audio clip\
-  * @param msg the message that summoned the bot.
-  */
- function playAudio(audio, msg) {
-   var voiceChannel = msg.member.voiceChannel;
-   try {
-     voiceChannel.join().then(function(connection) {
-       const dispatcher = connection.playFile('./assets/audio/' + audio);
-       dispatcher.on('end', function(end) {
-         voiceChannel.leave();
-       });
-     }).catch(function(err) {
-       console.log(err);
-     });
-   }
-   catch (err) {
-     msg.reply('You need to be in a voice channel.');
-   }
-   return;
- }
+const commands = require('./router.js');
+
+function getInfo(command) {
+  if (command == '!cointoss') return commands.cointoss.info;
+}
+
+function isValid(command) {
+  if (command == '!cointoss') return true;
+}
 
 /**
  * Gets a random number between 0 and the upper limit.
@@ -36,6 +23,7 @@ var random = function(num) {
 }
 
 module.exports = {
-  random : random,
-  playAudio : playAudio
+  getInfo : getInfo,
+  isValid : isValid,
+  random : random
 }

@@ -7,10 +7,9 @@ var utils = require('../../utils.js');
 /**
  * Controls the bot to send a tts message in the text channel and roast the
  * user of the summoner's choice.
- * @param msg the message that was used to summon the bot.
- * @param args the arguements passed along with the command.
+ * @param command the command called by the bot summoner.
  */
-function insult(msg, args) {
+function insult(command) {
   insults = [
     'you\'re a failed abortion whose birth certificate is an apology from the condom factory.',
     'you must have been born on a highway, that\'s where most accidents happen.',
@@ -31,12 +30,12 @@ function insult(msg, args) {
     'you should have been anal.',
     'is desperate for a lady.'
   ];
-  if (args === undefined) {
-    msg.reply('A name is required for me to insult someone.\n!insult @user');
+  if (command.arg === undefined) {
+    command.msg.reply('A name is required for me to insult someone. Try using !help insult.');
     return;
   }
   var insult = utils.random(insults.length) + 1;
-  msg.channel.send(args[0] + ', ' + insults[insult], {tts: true});
+  command.msg.channel.send(command.arg + ', ' + insults[insult], {tts: true});
 }
 
 module.exports = {

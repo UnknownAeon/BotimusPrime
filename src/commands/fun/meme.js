@@ -6,18 +6,20 @@ var utils = require('../../utils.js')
 
 /**
  * Uses tts and speaks a frequently used meme on the server.
- * @param msg the message that was used to summon the bot.
- * @param args the arguements passed along with the command.
+ * @param command the command called by the bot summoner.
  */
-var memeSpeak = function(msg, args) {
+var memeSpeak = function(command) {
   var meme;
-  if (args[0] == 'earthquake') meme = 'get ready for another chinese earth quake abrbrbrbrbrbrrbrbrbrrbuhhhhhhhhhhhhhhhhhhhhhbrbrbrbrbrbrruhhhhhhhhhhhhhhhhhh';
-  else if (args[0] == 'meow') meme = 'meow. meow. meow. meow. meow. meow. meow. meow.';
-  else if (args[0] == 'sprinkler') meme = 'my sprinkler goes like thisstststststststststststststststststststststststst and comes back like ttttttttttttttttttttttttttttttttttttttte';
-  else if (args[0] == 'dad') {
-    console.log(args);
-    if (args[1] === undefined) {
-      msg.reply('sorry, but I need a number of dads to drop.');
+  if (command.arg == undefined) {
+    command.msg.reply('please give me a meme to speak. Try using !help memespeak.');
+    return;
+  }
+  if (command.arg == 'earthquake') meme = 'get ready for another chinese earth quake abrbrbrbrbrbrrbrbrbrrbuhhhhhhhhhhhhhhhhhhhhhbrbrbrbrbrbrruhhhhhhhhhhhhhhhhhh';
+  else if (command.arg == 'meow') meme = 'meow. meow. meow. meow. meow. meow. meow. meow.';
+  else if (command.arg == 'sprinkler') meme = 'my sprinkler goes like thisstststststststststststststststststststststststst and comes back like ttttttttttttttttttttttttttttttttttttttte';
+  else if (command.arg == 'dad') {
+    if (command.subarg === undefined) {
+      command.msg.reply('sorry, but I need a number of dads to drop.');
       return;
     }
     else {
@@ -25,7 +27,7 @@ var memeSpeak = function(msg, args) {
       var dad;
       var dads = [];
       var dadNum = 0;
-      for (var i = 0; i < args[1]; i++) {
+      for (var i = 0; i < command.subarg; i++) {
         dad = '';
         dadNum = utils.random(4) + 1;
         dad += 'd';
@@ -35,16 +37,16 @@ var memeSpeak = function(msg, args) {
         dad += 'd';
         dads.push(dad);
       }
-      for (var k = 0; k < args[1]; k++) {
+      for (var k = 0; k < command.subarg; k++) {
         meme += ' ' + dads[k];
       }
     }
   }
   else {
-    msg.reply('sorry, I do not know that one. Ask my master to teach me?');
+    command.msg.reply('sorry, I do not know that one. Ask my master to teach me?');
     return;
   }
-  msg.channel.send(meme, {tts: true});
+  command.msg.channel.send(meme, {tts: true});
 }
 
 module.exports = {

@@ -7,68 +7,63 @@
 
  /**
   * Maintains calls to all of the hots-based commands.
-  * @param msg The message that was used to summon the bot.
-  * @param args the arguements passed along with the command.
+ * @param command the command called by the bot summoner.
   */
-function hots(msg, args) {
-  if (args.length > 0 && args[0] === 'build') {
-    hotslogs(msg, args);
+function hots(command) {
+  if (command.arg === 'build') {
+    if (command.subarg !== undefined) hotslogs(command);
+    else command.msg.reply('In order to get a talent guide the name of the requested hero is required.');
   }
   else {
-    msg.reply("I do not recognize that hots command.\nValid commands:\n!hots build [hero]");
+    command.msg.reply('I do not recognize that hots command. Try using !help hots.');
   }
 }
 
 /**
  * Controls the bot to message the meta build for a hero on hotslogs.
- * @param msg The message that was used to summon the bot.
- * @param args the arguements passed along with the command.
+ * @param command the command called by the bot summoner.
  */
-function hotslogs(msg, args) {
-  if (args[1] == undefined) {
-    msg.reply('In order to get a talent guide the name of the requested hero is required.');
-    return;
-  }
+function hotslogs(command) {
   // Ensures the first letter of the hero's name is capitalized.
-  args = args[1].charAt(0).toUpperCase() + args[1].slice(1);
-  scrubHOTSLOGS(args).then(function(talentBuild) {
-    msg.reply('this is highest winrate build for ' + args + ' on hotslogs.com -- it may take a few moments to load.');
-    msg.channel.send('Level 1:', {embed : {
+  hero = command.subarg.charAt(0).toUpperCase() + command.subarg.slice(1);
+  scrubHOTSLOGS(hero).then(function(talentBuild) {
+    command.msg.reply('this is highest winrate build for ' + hero + ' on hotslogs.com -- it may take a few moments to load.');
+    command.msg.channel.send('Level 1:', {embed : {
       author : {
         name : talentBuild.level1.name,
         icon_url : talentBuild.level1.img
       },
       description : talentBuild.level1.desc
     }});
-    msg.channel.send('Level 4:', {embed : {
+    command.msg.channel.send('Level 4:', {embed : {
       author : {
         name : talentBuild.level4.name,
         icon_url : talentBuild.level4.img
       },
       description : talentBuild.level4.desc
     }});
-    msg.channel.send('Level 7:', {embed : {
+    command.msg.channel.send('Level 7:', {embed : {
       author : {
         name : talentBuild.level7.name,
         icon_url : talentBuild.level7.img
       },
       description : talentBuild.level7.desc
     }});
-    msg.channel.send('Level 10:', {embed : {
+    command.msg.channel.send('Level 10:', {embed : {
       author : {
         name : talentBuild.level10.name,
         icon_url : talentBuild.level10.img
       },
       description : talentBuild.level10.desc
     }});
-    msg.channel.send('Level 13:', {embed : {
+    command.msg.channel.send('Level 13:', {embed : {
       author : {
         name : talentBuild.level13.name,
         icon_url : talentBuild.level13.img
       },
       description : talentBuild.level13.desc
     }});
-    msg.channel.send('Level 16:', {embed : {
+    command.msg.channel.send('Level 16:', {embed : {
       author : {
         name : talentBuild.level16.name,
         icon_url : talentBuild.level16.img

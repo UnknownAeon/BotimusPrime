@@ -7,10 +7,10 @@ var utils = require('../../utils.js');
 
 /**
  * Just as an inside joke between our friend group
- * @param msg The message used to summon the bot
+ * @param command the command called by the bot summoner.
  */
 
-var exposedReply = function(msg) {
+var exposedReply = function(command) {
     replies = [
       'you\'ve been EXPOSED',
       'i\'m EXPOSING you',
@@ -27,9 +27,9 @@ var exposedReply = function(msg) {
     // Choose a random reply
     var replySelector = utils.random(replies.length);
     if (replySelector === 0) {
-      msg.reply('you only have ' + games + ' games? lol you broke ass bitch',{tts: true});
+      command.msg.reply('you only have ' + games + ' games? lol you broke ass bitch',{tts: true});
     } else {
-      msg.reply(replies[replySelector],{tts: true});
+      command.msg.reply(replies[replySelector],{tts: true});
     }
 }
 

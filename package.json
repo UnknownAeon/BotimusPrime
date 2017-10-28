@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": ""
+    "start": "node bot.js"
   },
   "author": "Kevin Pfeifle(UnknownAeon)",
   "license": "ISC"

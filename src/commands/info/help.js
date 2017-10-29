@@ -9,9 +9,9 @@
  */
 function help(command) {
   if (command.arg == undefined) {
-    command.msg.reply('Usage: !help [category]\nGives description of command categories.\n\
-     Valid categories: fun, game, info, moderation, utility\n\
-     Usage: !help [category] [command] gives description of a command.');
+    command.msg.reply('\nUsage: !help [category]\nGives description of command categories.\n\
+Valid categories: fun, game, info, moderation, utility\n\
+Usage: !help [category] [command] gives description of a command.');
   }
   if (command.arg == 'fun') {
     if (command.subarg == undefined) {

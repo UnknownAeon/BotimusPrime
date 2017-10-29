@@ -6,7 +6,7 @@
   "dependencies": {
     "discord.js": "^11.1.0",
     "opusscript": "0.0.3",
-    "Promise": "^1.0.5",
+	  "Promise": "^1.0.5",
     "cheerio": "^1.0.0-rc.2",
     "request": "^2.83.0"
   },

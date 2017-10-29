@@ -14,7 +14,7 @@ function help(command) {
     'Valid categories: fun, game, info, moderation, utility\n\n' +
     'Name: Help Commands\nUsage: !help [category] [command]\nDescription: Gives description of a command. See categories for listings.');
   }
-  if (command.arg == 'fun') {
+  else if (command.arg == 'fun') {
     if (command.subarg == undefined) {
       command.msg.reply('commands in the fun category are those who have no purpose or are silly.\n\n' +
       'Name: Fun Commands Help\nUsage: !help [fun] [command]\nDescription: Gives details on the given \'fun\' command. ' +

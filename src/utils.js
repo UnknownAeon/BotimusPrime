@@ -6,6 +6,7 @@
 const commands = require('./router.js');
 
 function getInfo(results) {
+  console.log(results.command);
   if (results.command === '!cointoss') return commands.cointoss.info;
   else if (results.command === '!exposed') return commands.exposed.info;
   else if (results.command === '!diceroll') return commands.diceroll.info;

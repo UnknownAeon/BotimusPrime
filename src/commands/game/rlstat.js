@@ -17,6 +17,15 @@ function rlstats(command) {
             }
         });
   }
+
+  if (command.arg == 'dev') {
+    client.getPlayer("76561198033338223", rls.platforms.STEAM, function(status, data){
+        if(status === 200){
+            console.log("-- Player Data:");
+            console.log("   Display name: " + data.displayName);
+            console.log("   Goals: " + data.stats.goals);
+          }
+        });
 }
 
 

@@ -21,9 +21,7 @@ function help(botCommand) {
   else {
     if (!utils.isValid(botCommand.arg)) botCommand.msg.reply('that is not a valid command. Use !commands for a listing of all commands.');
     else {
-      console.log(botCommand.arg);
       var commandInfo = utils.getInfo(botCommand.arg);
-      console.log(JSON.stringify(commandInfo));
       if (commandInfo.argNum == 0) {
         botCommand.msg.reply('\n**__Command Name:__**\n\t' + commandInfo.name + '\n\n' +
         '**__Command Usage:__**\n\t' + commandInfo.usage + '\n\n' +

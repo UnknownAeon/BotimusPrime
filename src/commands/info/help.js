@@ -10,8 +10,10 @@
 function help(command) {
   if (command.arg == undefined) {
     command.msg.reply('you have not specified which command you would like help with.\n\n' +
-    '**__ Command Name:__**\n\thelp\n**__Command Usage:__**\n\t!help [command]\n\t!help [command] [subcommmand]\n' +
-    '**__Command Description:__**\n\tdisplays information for the given command or subcommand.\n\nIf you would like a listing of all commands, try !commands.');
+    '**__Command Name:__**\n\thelp\n\n' +
+    '**__Command Usage:__**\n\t!help [command]\n\t!help [command] [subcommmand]\n\n' +
+    '**__Command Description:__**\n\n\tdisplays information for the given command or subcommand.\n\n' +
+    'If you would like a listing of all commands, try !commands.');
   }
   else {
 

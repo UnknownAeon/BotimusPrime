@@ -24,10 +24,9 @@ function rlstats(command) {
     client.getPlaylistsData(function(status, data) {
       if (status === 200) {
         command.msg.reply("\n-- Playlist Data:");
-        command.msg.reply(data);
 
         for (var i = 0; i < data.length; i++) {
-          command.msg.reply(data[i]);
+          command.msg.reply(JSON.toString(data[i]));
 
         }
       }

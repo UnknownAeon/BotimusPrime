@@ -26,6 +26,7 @@ function rlstats(command) {
             console.log("   Goals: " + data.stats.goals);
           }
         });
+      }
 }
 
 

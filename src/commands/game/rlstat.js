@@ -10,20 +10,12 @@ var client = new rls.Client({
 
 
 function rlstats(command) {
-  if (command.arg == 'platform') {
-        client.getPlatformsData(function(status, data) {
-        if(status === 200) {
-            command.msg.reply("-- Platforms data:\n" + data.name);
-            }
-        });
-  }
-
   if (command.arg == 'dev') {
     client.getPlayer("76561198033338223", rls.platforms.STEAM, function(status, data){
         if(status === 200){
-            command.msg.reply("-- Player Data:") + "\n" +
-            ("   Display name: " + data.displayName) + "\n" +
-            ("   Goals: " + data.stats.goals);
+            command.msg.reply("-- Player Data:\n" +
+            "   Display name: " + data.displayName + "\n" +
+            "   Goals: " + data.stats.goals);
           }
         });
       }

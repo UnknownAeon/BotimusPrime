@@ -12,7 +12,7 @@ function getInfo(results) {
   else if (results === 'diceroll') return commands.diceroll.info;
   else if (results === 'audio') return commands.audio.info;
   else if (results === 'help') return commands.help.info;
-  else if (resultsg === 'hots') return commands.hots.info;
+  else if (results === 'hots') return commands.hots.info;
   else if (results === 'insult') return commands.insult.info;
   else if (results === 'memespeak') return commands.meme.info;
   else if (results === 'ping') {

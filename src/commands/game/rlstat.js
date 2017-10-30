@@ -8,17 +8,17 @@ var client = new rls.Client({
   token: "9IW66CIWOE8GS24D34M3BRZGD608GWWO"
 });
 
-var rlstats = function(command) {
+
+function rlstats(command) {
   if (command.arg == 'platform') {
-    client.getPlatformsData(function(status, data){
-        if(status === 200){
+        client.getPlatformsData(function(status, data) {
+        if(status === 200) {
             command.msg.reply("-- Platforms data:");
             command.msg(data);
+          }
         }
-    });
-  }
-}
-
+      }
+    }
 
 client.getPlatformsData(function(status, data){
     if(status === 200){

@@ -27,7 +27,7 @@ function rlstats(command) {
         command.msg.reply(data);
 
         for (var i = 0; i < data.length; i++) {
-          command.msg.reply(data[i]);
+          command.msg.reply(data[i].name);
 
         }
       }

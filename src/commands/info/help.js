@@ -10,7 +10,7 @@
 function help(command) {
   if (command.arg == undefined) {
     command.msg.reply('you have not specified which command you would like help with.\n\n\
-Name: \n\
+**__Name__**: \n\
 \thelp\n\
 Usage: \n\
 \t!help [command]\n\

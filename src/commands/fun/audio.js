@@ -1,6 +1,6 @@
 /**
  * @author Andrew Subowo
- * @author Kevin Pfeifle(UnknownAeon)
+ * @author Kevin Pfeifle
  * @since 0.2 contributory
  */
 var utils = require('../../utils.js')

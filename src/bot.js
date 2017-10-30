@@ -1,7 +1,7 @@
 /**
  * Botimus Prime, a discord bot designed for the 2AM Gaming server.
  *
- * @author Kevin Pfeifle(UnknownAeon)
+ * @author Kevin Pfeifle
  * @version 0.2
  * @since 0.1
  */

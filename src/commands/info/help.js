@@ -9,9 +9,14 @@
  */
 function help(command) {
   if (command.arg == undefined) {
-    command.msg.reply('you have not specified which command you would like help with.\n\nName: help\n' +
-    'Usage: !help [command] or !help [command] [subcommmand]\nDescription: displays information for the given command or subcommand.\n\n' +
-    'If you would like a listing of all commands, try !commands.');
+    command.msg.reply('you have not specified which command you would like help with.\n\n\
+Name: \
+\thelp\n\
+Usage: \
+\t!help [command]\
+\t!help [command] [subcommmand]\n\
+Description: \
+\tdisplays information for the given command or subcommand.\n\nIf you would like a listing of all commands, try !commands.');
   }
   else {
 

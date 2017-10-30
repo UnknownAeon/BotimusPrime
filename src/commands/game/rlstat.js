@@ -13,12 +13,26 @@ function rlstats(command) {
   if (command.arg == 'dev') {
     client.getPlayer("76561198033338223", rls.platforms.STEAM, function(status, data){
         if(status === 200){
-            command.msg.reply("-- Player Data:\n" +
+            command.msg.reply("\n-- Player Data:\n" +
             "   Display name: " + data.displayName + "\n" +
             "   Goals: " + data.stats.goals);
           }
         });
       }
+
+  if (command.arg == 'dev2') {
+    client.getPlaylistsData(function(status, data) {
+      if (status === 200) {
+        command.msg.reply("\n-- Playlist Data:");
+        command.msg.reply(data);
+
+        for (int i = 0; i < data.length; i++) {
+          command.msg.reply(data.name);
+          command.msg.reply(data.population.players);
+        }
+      }
+    });
+  }
 }
 
 

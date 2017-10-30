@@ -35,6 +35,16 @@ function rlstats(command) {
 
     });
   }
+
+  if (command.arg == 'search') {
+    client.searchPlayers("Mike", function(status, data){
+    if(status === 200){
+        command.msg.reply("-- Player Search Data:");
+        command.msg.reply("   Results: " + data.results);
+        command.msg.reply("   Total Results: " + data.totalResults);
+    }
+    });
+  }
 }
 
 

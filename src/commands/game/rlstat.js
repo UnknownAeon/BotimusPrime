@@ -13,9 +13,8 @@ function rlstats(command) {
   if (command.arg == 'platform') {
         client.getPlatformsData(function(status, data) {
         if(status === 200) {
-            command.msg.reply("-- Platforms data:");
-            command.msg(data);
-          }
+            command.msg.reply("-- Platforms data:\n" + data);
+            }
         });
   }
 }

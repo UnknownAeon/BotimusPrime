@@ -27,8 +27,8 @@ function rlstats(command) {
         command.msg.reply(data);
 
         for (var i = 0; i < data.length; i++) {
-          command.msg.reply(data.name);
-          command.msg.reply(data.population.players);
+          command.msg.reply(data[i].name);
+          command.msg.reply(data[i].population.players);
         }
       }
     });

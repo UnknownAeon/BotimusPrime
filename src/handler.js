@@ -27,7 +27,7 @@ var handleCommand = function(msg) {
     else if (results.command === '!insult') commands.insult.insult(results);
     else if (results.command === '!memespeak') commands.meme.memeSpeak(results);
     else if (results.command === '!ping') msg.reply('Pong!');
-    else if (results.command === '!rlstats') commands.);
+    else if (results.command === '!rlstats') commands.rlstat.rlstats(results));
     else msg.reply('sorry, I do not recognize that as a valid command. Type !help to see valid commands.');
   })
 }

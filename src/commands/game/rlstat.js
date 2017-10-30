@@ -26,7 +26,7 @@ function rlstats(command) {
         command.msg.reply("\n-- Playlist Data:");
         command.msg.reply(data);
 
-        for (int i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
           command.msg.reply(data.name);
           command.msg.reply(data.population.players);
         }

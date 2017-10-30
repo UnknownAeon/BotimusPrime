@@ -16,11 +16,10 @@ var coinFlip = function(command) {
 
  module.exports = {
    coinFlip : coinFlip,
- }
-
- exports.info = {
-     argNum : 0,
-     name : 'coin toss',
-     usage : '!cointoss',
-     desc : 'commands the bot to toss a coin, displays the side it landed on.'
+   info : {
+       argNum : 0,
+       name : 'coin toss',
+       usage : '!cointoss',
+       desc : 'commands the bot to toss a coin, displays the side it landed on.'
+   }
  }

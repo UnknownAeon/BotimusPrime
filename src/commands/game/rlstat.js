@@ -16,7 +16,7 @@ function rlstats(command) {
             command.msg.reply("-- Platforms data:");
             command.msg(data);
           }
-        }
+        });
       }
     }
 

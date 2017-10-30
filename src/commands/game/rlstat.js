@@ -13,7 +13,7 @@ function rlstats(command) {
   if (command.arg == 'platform') {
         client.getPlatformsData(function(status, data) {
         if(status === 200) {
-            command.msg.reply("-- Platforms data:\n" + data);
+            command.msg.reply("-- Platforms data:\n" + data.name);
             }
         });
   }
@@ -21,9 +21,9 @@ function rlstats(command) {
   if (command.arg == 'dev') {
     client.getPlayer("76561198033338223", rls.platforms.STEAM, function(status, data){
         if(status === 200){
-            console.log("-- Player Data:");
-            console.log("   Display name: " + data.displayName);
-            console.log("   Goals: " + data.stats.goals);
+            command.msg.reply("-- Player Data:") + "\n" +
+            ("   Display name: " + data.displayName) + "\n" +
+            ("   Goals: " + data.stats.goals);
           }
         });
       }

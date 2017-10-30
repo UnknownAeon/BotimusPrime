@@ -8,6 +8,18 @@ var client = new rls.Client({
   token: "9IW66CIWOE8GS24D34M3BRZGD608GWWO"
 });
 
+var rlstats = function(command) {
+  if (command.arg == 'platform') {
+    client.getPlatformsData(function(status, data){
+        if(status === 200){
+            command.msg.reply("-- Platforms data:");
+            command.msg(data);
+        }
+    });
+  }
+}
+
+
 client.getPlatformsData(function(status, data){
     if(status === 200){
         console.log("-- Platforms data:");
@@ -67,3 +79,7 @@ client.getStatLeaderboard(rls.statType.GOALS, function(status, data){
         console.log("   Goals #1 Player: " + data[0].displayName);
     }
 });
+
+module.exports = {
+  rlstats : rlstats
+};

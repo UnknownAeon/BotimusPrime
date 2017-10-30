@@ -1,5 +1,5 @@
 /**
- * @author Kevin Pfeifle(UnknownAeon)
+ * @author Kevin Pfeifle
  * @since 0.2
  */
 var utils = require('../../utils.js')

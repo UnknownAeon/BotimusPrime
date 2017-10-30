@@ -1,5 +1,5 @@
 /**
- * @author Kevin Pfeifle(UnknownAeon)
+ * @author Kevin Pfeifle
  * @author Andrew Subowo
  * @since 0.2
  */

@@ -10,12 +10,12 @@
 function help(command) {
   if (command.arg == undefined) {
     command.msg.reply('you have not specified which command you would like help with.\n\n\
-Name: \
+Name: \n\
 \thelp\n\
-Usage: \
-\t!help [command]\
+Usage: \n\
+\t!help [command]\n\
 \t!help [command] [subcommmand]\n\
-Description: \
+Description: \n\
 \tdisplays information for the given command or subcommand.\n\nIf you would like a listing of all commands, try !commands.');
   }
   else {

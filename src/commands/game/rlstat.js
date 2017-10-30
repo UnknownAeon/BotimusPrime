@@ -25,11 +25,14 @@ function rlstats(command) {
       if (status === 200) {
         command.msg.reply("\n-- Playlist Data:");
 
-        for (var i = 0; i < data.length; i++) {
-          command.msg.reply(JSON.stringify(data[i].name));
+        var jsonContents = JSON.parse(data);
 
+        for (var i = 0; i < jsonContents.length; i++) {
+          command.msg.reply(jsonContents.name);
         }
+
       }
+
     });
   }
 }
@@ -43,12 +46,6 @@ function rlstats(command) {
 //     }
 // });
 //
-// client.getPlaylistsData(function(status, data){
-//     if(status === 200){
-//         console.log("-- Playlists data:");
-//         console.log(data);
-//     }
-// });
 //
 // client.getTiersData(function(status, data){
 //     if(status === 200){
@@ -57,13 +54,6 @@ function rlstats(command) {
 //     }
 // });
 //
-// client.getPlayer("76561198033338223", rls.platforms.STEAM, function(status, data){
-//     if(status === 200){
-//         console.log("-- Player Data:");
-//         console.log("   Display name: " + data.displayName);
-//         console.log("   Goals: " + data.stats.goals);
-//     }
-// });
 //
 // client.searchPlayers("Mike", function(status, data){
 //     if(status === 200){

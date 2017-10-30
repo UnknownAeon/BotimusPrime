@@ -6,16 +6,16 @@
 const commands = require('./router.js');
 
 function getInfo(results) {
-  console.log(results.command);
-  if (results.command === '!cointoss') return commands.cointoss.info;
-  else if (results.command === '!exposed') return commands.exposed.info;
-  else if (results.command === '!diceroll') return commands.diceroll.info;
-  else if (results.command === '!audio') return commands.audio.info;
-  else if (results.command === '!help') return commands.help.info;
-  else if (results.command === '!hots') return commands.hots.info;
-  else if (results.command === '!insult') return commands.insult.info;
-  else if (results.command === '!memespeak') return commands.meme.info;
-  else if (results.command === '!ping') {
+  console.log(results.arg);
+  if (results.arg === '!cointoss') return commands.cointoss.info;
+  else if (results.arg === '!exposed') return commands.exposed.info;
+  else if (results.arg === '!diceroll') return commands.diceroll.info;
+  else if (results.arg === '!audio') return commands.audio.info;
+  else if (results.arg === '!help') return commands.help.info;
+  else if (results.arg === '!hots') return commands.hots.info;
+  else if (results.arg === '!insult') return commands.insult.info;
+  else if (results.arg === '!memespeak') return commands.meme.info;
+  else if (results.arg === '!ping') {
     return {
       argNum : 0,
       name : 'ping',
@@ -23,7 +23,7 @@ function getInfo(results) {
       desc : 'pong!'
     };
   }
-  else if (results.command === '!rlstats') return commands.rlstats.info;
+  else if (results.arg === '!rlstats') return commands.rlstats.info;
 }
 
 function isValid(command) {

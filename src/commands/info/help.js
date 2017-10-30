@@ -19,9 +19,10 @@ function help(botCommand) {
     'If you would like a listing of all commands, try !commands.');
   }
   else {
-    if (!utils.isValid(botCommand.command)) botCommand.msg.reply('that is not a valid command. Use !commands for a listing of all commands.');
+    if (!utils.isValid(botCommand.arg)) botCommand.msg.reply('that is not a valid command. Use !commands for a listing of all commands.');
     else {
-      var commandInfo = utils.getInfo(botCommand.command);
+      console.log(botCommand.arg);
+      var commandInfo = utils.getInfo(botCommand.arg);
       console.log(JSON.stringify(commandInfo));
       if (commandInfo.argNum == 0) {
         botCommand.msg.reply('\n**__Command Name:__**\n\t' + commandInfo.name + '\n\n' +

@@ -14,5 +14,11 @@ var diceroll = function(command) {
 }
 
 module.exports = {
-  diceroll : diceroll
+  diceroll : diceroll,
+  info : {
+      argNum : 0,
+      name : 'dice roll',
+      usage : '!diceroll',
+      desc : 'commands the bot to roll a dice, displays the side it landed on.'
+  }
 }

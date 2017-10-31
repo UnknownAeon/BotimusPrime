@@ -33,13 +33,13 @@ function help(botCommand) {
         '**__Command Description:__**\n\t' + commandInfo.desc + '\n\n' +
         '**__Valid Options:__**\n\t';
         var first = true;
-        commandInfo.args.forEach(arg) {
+        commandInfo.args.forEach(arg => {
           if (first) {
             message += arg;
             first = false;
           }
           else message += ', ' + arg;
-        }
+        });
         botCommand.msg.reply(message);
       }
       else if (commandInfo.argNum == 2) {

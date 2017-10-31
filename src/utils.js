@@ -5,6 +5,11 @@
 
 const commands = require('./router.js');
 
+/**
+ * Supplies the info JSON for a command.
+ * @param results the arguement taken from a command.
+ * @returns the info for the given command.
+ */
 function getInfo(results) {
   if (results === 'cointoss') return commands.cointoss.info;
   else if (results === 'exposed') return commands.exposed.info;
@@ -25,6 +30,11 @@ function getInfo(results) {
   else if (results === 'rlstats') return commands.rlstats.info;
 }
 
+/**
+ * Checks if the command is valid or not.
+ * @param command the name of a command.
+ * @returns true if valid, false otherwise.
+ */
 function isValid(command) {
   var validCommands = ['cointoss', 'exposed', 'diceroll', 'audio', 'help', 'hots', 'insult', 'memespeak', 'ping', 'rlstats'];
   if (validCommands.indexOf(command) > -1) return true;

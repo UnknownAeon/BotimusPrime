@@ -39,5 +39,12 @@ function insult(command) {
 }
 
 module.exports = {
-  insult : insult
+  insult : insult,
+  info : {
+      argNum : 1,
+      name : 'insult',
+      usage : '!insult',
+      args : ['the username of a channel member'],
+      desc : 'commands the bot to to roast your friends.'
+  }
 }

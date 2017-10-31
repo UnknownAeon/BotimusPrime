@@ -45,6 +45,6 @@ module.exports = {
       name : 'insult',
       usage : '!insult',
       args : ['the username of a channel member'],
-      desc : 'commands the bot to to roast your friends.'
+      desc : 'commands the bot to roast your friends.'
   }
 }

@@ -28,7 +28,19 @@ function help(botCommand) {
         '**__Command Description:__**\n\t' + commandInfo.desc + '\n\n');
       }
       else if (commandInfo.argNum == 1) {
-
+        var message = '\n**__Command Name:__**\n\t' + commandInfo.name + '\n\n' +
+        '**__Command Usage:__**\n\t' + commandInfo.usage + ' [option]' + '\n\n' +
+        '**__Command Description:__**\n\t' + commandInfo.desc + '\n\n' +
+        '**__Valid Options:__**\n\t';
+        var first = true;
+        commandInfo.args.forEach(arg => {
+          if (first) {
+            message += arg;
+            first = false;
+          }
+          else message += ', ' + arg;
+        });
+        botCommand.msg.reply(message);
       }
       else if (commandInfo.argNum == 2) {
 

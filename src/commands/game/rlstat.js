@@ -17,12 +17,12 @@ function rlstats(command) {
             command.msg.reply("This is the player data for " + player)
             command.msg.channel.send("\n**__Player Data:__**\n" +
             "\tDisplay name: " + data.displayName + "\n" +
-            "\tWins\t" + data.stats.wins + "\n" +
-            "\tGoals:\t" + data.stats.goals + "\n" +
-            "\tMVPs:\t" + data.stats.mvps + "\n" +
-            "\tSaves:\t" + data.stats.saves + "\n" +
-            "\tShots:\t" + data.stats.shots + "\n" +
-            "\tAssists:\t" + data.stats.assists);
+            "\tWins:\t\t" + data.stats.wins + "\n" +
+            "\tGoals:\t\t" + data.stats.goals + "\n" +
+            "\tMVPs:\t\t" + data.stats.mvps + "\n" +
+            "\tSaves:\t\t" + data.stats.saves + "\n" +
+            "\tShots:\t\t" + data.stats.shots + "\n" +
+            "\tAssists:\t\t" + data.stats.assists);
           }
         else {
           command.msg.reply(player + " was not found. Please enter in the steam unique ID number instead.");
@@ -34,12 +34,10 @@ function rlstats(command) {
     client.getPlaylistsData(function(status, data) {
       if (status === 200) {
         command.msg.reply("\n-- Playlist Data:");
+        var test = data.name;
+        var players = data.population.players;
 
-        var jsonContents = JSON.parse(data);
-
-        for (var i = 0; i < jsonContents.length; i++) {
-          command.msg.reply(jsonContents.name);
-        }
+        console.log(data);
 
       }
 

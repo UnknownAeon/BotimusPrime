@@ -28,7 +28,7 @@ function rlstats(command) {
               .addField("Shots", data.stats.shots)
               .addField("Assists", data.stats.assists);
 
-            message.channel.send({embed});
+            command.msg.channel.send({embed});
 
             // command.msg.channel.send("\n**__Player Data:__**\n" +
             // "\tDisplay name: " + data.displayName + "\n" +

@@ -34,7 +34,7 @@ function rlstats(command) {
     client.getPlaylistsData(function(status, data) {
       if (status === 200) {
         command.msg.reply("\n-- Playlist Data:");
-        
+
         console.log(data);
 
       }
@@ -46,9 +46,9 @@ function rlstats(command) {
     var player = command.subarg;
     client.searchPlayers(player, function(status, data){
     if(status === 200){
-        command.msg.channel.send("-- Player Search Data:");
-        command.msg.channel.send("   Results: " + data.results);
-        command.msg.channel.send("   Total Results: " + data.totalResults);
+        command.msg.channel.send("**--Player Search Data:__**");
+        command.msg.channel.send("\tResults: " + data.results);
+        command.msg.channel.send("\tTotal Results: " + data.totalResults);
     }
     });
   }
@@ -59,6 +59,7 @@ if (command.arg === 'season') {
     if (status === 200) {
       command.msg.reply('This is the Seasons data returned');
       command.msg.channel.send(data);
+      console.log(data);
     }
   });
 }

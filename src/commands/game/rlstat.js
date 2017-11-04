@@ -3,6 +3,7 @@
  */
 
 var rls = require('rls-api');
+var bot = require('./bot.js');
 
 var client = new rls.Client({
   token: "9IW66CIWOE8GS24D34M3BRZGD608GWWO"
@@ -16,7 +17,7 @@ function rlstats(command) {
         if(status === 200){
             var avatar = data.avatar;
 
-            const embed = new Discord.RichEmbed()
+            const embed = new bot.discord.RichEmbed()
               .setTitle("Player data for: " + player)
               .setThumbnail(avatar)
               .addField("Display name", data.displayName)

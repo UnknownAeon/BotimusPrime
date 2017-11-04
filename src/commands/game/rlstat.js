@@ -18,6 +18,14 @@ function rlstats(command) {
       client.getPlayer(player, rls.platforms.STEAM, function(status, data){
           if(status === 200){
               var avatar = data.avatar;
+              var scorepercentage = (parseInt(data.stats.shots) / parseInt(data.stats.goals)) * 100;
+              var goals = parseInt(data.stats.goals);
+              var assists = parseInt(data.stats.assists);
+              var saves = parseInt(data.stats.saves);
+              var shots = parseInt(data.stats.shots);
+              var playerEfficiency = (goals * 1) + (assists * 0.8) + (saves * 0.7)
+                + (shots * 0.5) + ((goals/shots) * 0.6);
+
 
               const embed = new Discord.RichEmbed()
                 .setColor(0x00AE86)
@@ -26,11 +34,14 @@ function rlstats(command) {
                 .addBlankField(true)
                 .addField("**__Display name__**", data.displayName)
                 .addField("**__Wins__**", data.stats.wins)
-                .addField("**__Goals__**", data.stats.goals)
+                .addField("**__Goals__**", goals)
+                .addField("**__Shots__**", shots)
+                .addField("**__Shot/Goal Ratio__**", scorepercentage)
                 .addField("**__Times MVP__**", data.stats.mvps)
-                .addField("**__Saves__**", data.stats.saves)
-                .addField("**__Shots__**", data.stats.shots)
-                .addField("**__Assists__**", data.stats.assists);
+                .addField("**__Saves__**", saves)
+                .addField("**__Assists__**", assists);
+                .addBlankField(true);
+                .addField("**__PLAYER EFFICIENCY__**", playerEfficiency);
 
               command.msg.channel.send({embed});
             }

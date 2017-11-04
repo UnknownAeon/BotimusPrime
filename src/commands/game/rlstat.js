@@ -12,39 +12,38 @@ var client = new rls.Client({
 
 function rlstats(command) {
   if (command.arg === 'info') {
-    var player = command.subarg;
-    client.getPlayer(player, rls.platforms.STEAM, function(status, data){
-        if(status === 200){
-            var avatar = data.avatar;
+    if (command.subarg !== undefined) {
+      var player = command.subarg;
+      command.msg.channel.send('Creating player card for ' + player + ', please wait.')
+      client.getPlayer(player, rls.platforms.STEAM, function(status, data){
+          if(status === 200){
+              var avatar = data.avatar;
 
-            const embed = new Discord.RichEmbed()
-              .setTitle("Player data for: " + player)
-              .setThumbnail(avatar)
-              .addField("Display name", data.displayName)
-              .addField("Wins", data.stats.wins)
-              .addField("Goals", data.stats.goals)
-              .addField("Times MVP", data.stats.mvps)
-              .addField("Saves", data.stats.saves)
-              .addField("Shots", data.stats.shots)
-              .addField("Assists", data.stats.assists);
+              const embed = new Discord.RichEmbed()
+                .setColor(0x00AE86)
+                .setTitle("Player data for: " + player)
+                .setThumbnail(avatar)
+                .addBlankField(true)
+                .addField("**__Display name__**", data.displayName)
+                .addField("**__Wins__**", data.stats.wins)
+                .addField("**__Goals__**", data.stats.goals)
+                .addField("**__Times MVP__**", data.stats.mvps)
+                .addField("**__Saves__**", data.stats.saves)
+                .addField("**__Shots__**", data.stats.shots)
+                .addField("**__Assists__**", data.stats.assists);
 
-            command.msg.channel.send({embed});
-
-            // command.msg.channel.send("\n**__Player Data:__**\n" +
-            // "\tDisplay name: " + data.displayName + "\n" +
-            // "\tWins:\t\t" + data.stats.wins + "\n" +
-            // "\tGoals:\t\t" + data.stats.goals + "\n" +
-            // "\tMVPs:\t\t" + data.stats.mvps + "\n" +
-            // "\tSaves:\t\t" + data.stats.saves + "\n" +
-            // "\tShots:\t\t" + data.stats.shots + "\n" +
-            // "\tAssists:\t" + data.stats.assists);
-            // command.msg.channel.send('Avatar', {embed })
+              command.msg.channel.send({embed});
+            }
+          else {
+            command.msg.reply(player + " was not found. Please enter Unique Steam ID number or name.");
           }
-        else {
-          command.msg.reply(player + " was not found. Please enter in the steam unique ID number instead.");
-        }
-        });
-      }
+          });
+    }
+    else {
+      command.msg.reply('Please specify a player.')
+    }
+  }
+}
 
   if (command.arg === 'dev2') {
     client.getPlaylistsData(function(status, data) {

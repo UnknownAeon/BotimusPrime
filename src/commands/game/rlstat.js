@@ -120,7 +120,7 @@ if (command.arg === 'season') {
 // });
 
 module.exports = {
-  rlstats : rlstats
+  rlstats : rlstats,
   info : {
     name :  "rlstats",
     usage:  "!rlstats [command] [command parameter]"

@@ -22,7 +22,7 @@ function rlstats(command) {
             "\tMVPs:\t\t" + data.stats.mvps + "\n" +
             "\tSaves:\t\t" + data.stats.saves + "\n" +
             "\tShots:\t\t" + data.stats.shots + "\n" +
-            "\tAssists:\t\t" + data.stats.assists);
+            "\tAssists:\t" + data.stats.assists);
           }
         else {
           command.msg.reply(player + " was not found. Please enter in the steam unique ID number instead.");
@@ -34,9 +34,7 @@ function rlstats(command) {
     client.getPlaylistsData(function(status, data) {
       if (status === 200) {
         command.msg.reply("\n-- Playlist Data:");
-        var test = data.name;
-        var players = data.population.players;
-
+        
         console.log(data);
 
       }

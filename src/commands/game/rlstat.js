@@ -10,13 +10,17 @@ var client = new rls.Client({
 
 
 function rlstats(command) {
-  if (command.arg == 'dev') {
-    client.getPlayer("76561198033338223", rls.platforms.STEAM, function(status, data){
+  if (command.arg == 'info') {
+    var player = command.subarg;
+    client.getPlayer(player, rls.platforms.STEAM, function(status, data){
         if(status === 200){
             command.msg.reply("\n-- Player Data:\n" +
             "   Display name: " + data.displayName + "\n" +
             "   Goals: " + data.stats.goals);
           }
+        else if (status === 404) {
+          command.msg.reply(player + " was not found. Please enter in the steam unique ID number instead.");
+        }
         });
       }
 
@@ -37,7 +41,8 @@ function rlstats(command) {
   }
 
   if (command.arg == 'search') {
-    client.searchPlayers("Mike", function(status, data){
+    var player = command.subarg;
+    client.searchPlayers(player, function(status, data){
     if(status === 200){
         command.msg.reply("-- Player Search Data:");
         command.msg.reply("   Results: " + data.results);

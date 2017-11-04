@@ -56,7 +56,7 @@ function rlstats(command) {
     }
     });
   }
-}
+
 
 if (command.arg === 'season') {
   client.getSeasonsData(function(status, data) {
@@ -67,6 +67,9 @@ if (command.arg === 'season') {
   });
 }
 
+
+
+}
 
 //
 // client.getTiersData(function(status, data){

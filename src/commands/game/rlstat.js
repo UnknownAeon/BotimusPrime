@@ -64,7 +64,7 @@ if (command.arg === 'season') {
       command.msg.reply('This is the Seasons data returned');
       command.msg.channel.send(data);
     }
-  })
+  });
 }
 
 

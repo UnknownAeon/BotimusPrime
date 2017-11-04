@@ -17,7 +17,7 @@ function rlstats(command) {
         if(status === 200){
             var avatar = data.avatar;
 
-            const embed = new bot.discord.RichEmbed()
+            const embed = new Discord.RichEmbed()
               .setTitle("Player data for: " + player)
               .setThumbnail(avatar)
               .addField("Display name", data.displayName)

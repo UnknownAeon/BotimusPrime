@@ -14,15 +14,30 @@ function rlstats(command) {
     var player = command.subarg;
     client.getPlayer(player, rls.platforms.STEAM, function(status, data){
         if(status === 200){
-            command.msg.reply("This is the player data for " + player)
-            command.msg.channel.send("\n**__Player Data:__**\n" +
-            "\tDisplay name: " + data.displayName + "\n" +
-            "\tWins:\t\t" + data.stats.wins + "\n" +
-            "\tGoals:\t\t" + data.stats.goals + "\n" +
-            "\tMVPs:\t\t" + data.stats.mvps + "\n" +
-            "\tSaves:\t\t" + data.stats.saves + "\n" +
-            "\tShots:\t\t" + data.stats.shots + "\n" +
-            "\tAssists:\t" + data.stats.assists);
+            var avatar = data.avatar;
+
+            const embed = new Discord.RichEmbed()
+              .setTitle("Player data for: " + player)
+              .setThumbnail(avatar)
+              .addField("Display name", data.displayName)
+              .addField("Wins", data.stats.wins)
+              .addField("Goals", data.stats.goals)
+              .addField("Times MVP", data.stats.mvps)
+              .addField("Saves", data.stats.saves)
+              .addField("Shots", data.stats.shots)
+              .addField("Assists", data.stats.assists);
+
+            message.channel.send({embed});
+
+            // command.msg.channel.send("\n**__Player Data:__**\n" +
+            // "\tDisplay name: " + data.displayName + "\n" +
+            // "\tWins:\t\t" + data.stats.wins + "\n" +
+            // "\tGoals:\t\t" + data.stats.goals + "\n" +
+            // "\tMVPs:\t\t" + data.stats.mvps + "\n" +
+            // "\tSaves:\t\t" + data.stats.saves + "\n" +
+            // "\tShots:\t\t" + data.stats.shots + "\n" +
+            // "\tAssists:\t" + data.stats.assists);
+            // command.msg.channel.send('Avatar', {embed })
           }
         else {
           command.msg.reply(player + " was not found. Please enter in the steam unique ID number instead.");
@@ -46,7 +61,7 @@ function rlstats(command) {
     var player = command.subarg;
     client.searchPlayers(player, function(status, data){
     if(status === 200){
-        command.msg.channel.send("**--Player Search Data:__**");
+        command.msg.channel.send("**__Player Search Data:__**");
         command.msg.channel.send("\tResults: " + data.results);
         command.msg.channel.send("\tTotal Results: " + data.totalResults);
     }

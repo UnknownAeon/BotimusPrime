@@ -18,7 +18,7 @@ function rlstats(command) {
       client.getPlayer(player, rls.platforms.STEAM, function(status, data){
           if(status === 200){
               var avatar = data.avatar;
-              var scorepercentage = (parseInt(data.stats.shots) / parseInt(data.stats.goals)) * 100;
+              var scorepercentage = (parseInt(data.stats.goals) / parseInt(data.stats.shots)) * 100;
               var goals = parseInt(data.stats.goals);
               var assists = parseInt(data.stats.assists);
               var saves = parseInt(data.stats.saves);
@@ -31,12 +31,11 @@ function rlstats(command) {
                 .setColor(0x00AE86)
                 .setTitle("Player data for: " + player)
                 .setThumbnail(avatar)
-                .addBlankField(true)
                 .addField("**__Display name__**", data.displayName)
                 .addField("**__Wins__**", data.stats.wins)
                 .addField("**__Goals__**", goals)
                 .addField("**__Shots__**", shots)
-                .addField("**__Shot/Goal Ratio__**", scorepercentage)
+                .addField("**__Shot/Goal Ratio__**", scorepercentage + "%")
                 .addField("**__Times MVP__**", data.stats.mvps)
                 .addField("**__Saves__**", saves)
                 .addField("**__Assists__**", assists)

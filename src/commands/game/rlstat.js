@@ -43,7 +43,7 @@ function rlstats(command) {
       command.msg.reply('Please specify a player.')
     }
   }
-}
+
 
   if (command.arg === 'dev2') {
     client.getPlaylistsData(function(status, data) {
@@ -81,7 +81,7 @@ if (command.arg === 'season') {
 
 
 
-}
+} //end of command parsing
 
 //
 // client.getTiersData(function(status, data){

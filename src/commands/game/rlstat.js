@@ -10,21 +10,27 @@ var client = new rls.Client({
 
 
 function rlstats(command) {
-  if (command.arg == 'info') {
+  if (command.arg === 'info') {
     var player = command.subarg;
     client.getPlayer(player, rls.platforms.STEAM, function(status, data){
         if(status === 200){
-            command.msg.reply("\n-- Player Data:\n" +
-            "   Display name: " + data.displayName + "\n" +
-            "   Goals: " + data.stats.goals);
+            command.msg.reply("This is the player data for " + player)
+            command.msg.channel.send("\n**__Player Data:__**\n" +
+            "\tDisplay name: " + data.displayName + "\n" +
+            "\tWins\t" + data.stats.wins + "\n" +
+            "\tGoals:\t" + data.stats.goals + "\n" +
+            "\tMVPs:\t" + data.stats.mvps + "\n" +
+            "\tSaves:\t" + data.stats.saves + "\n" +
+            "\tShots:\t" + data.stats.shots + "\n" +
+            "\tAssists:\t" + data.stats.assists);
           }
-        else if (status === 404) {
+        else {
           command.msg.reply(player + " was not found. Please enter in the steam unique ID number instead.");
         }
         });
       }
 
-  if (command.arg == 'dev2') {
+  if (command.arg === 'dev2') {
     client.getPlaylistsData(function(status, data) {
       if (status === 200) {
         command.msg.reply("\n-- Playlist Data:");
@@ -40,27 +46,28 @@ function rlstats(command) {
     });
   }
 
-  if (command.arg == 'search') {
+  if (command.arg === 'search') {
     var player = command.subarg;
     client.searchPlayers(player, function(status, data){
     if(status === 200){
-        command.msg.reply("-- Player Search Data:");
-        command.msg.reply("   Results: " + data.results);
-        command.msg.reply("   Total Results: " + data.totalResults);
+        command.msg.channel.send("-- Player Search Data:");
+        command.msg.channel.send("   Results: " + data.results);
+        command.msg.channel.send("   Total Results: " + data.totalResults);
     }
     });
   }
 }
 
+if (command.arg === 'season') {
+  client.getSeasonsData(function(status, data) {
+    if (status === 200) {
+      command.msg.reply('This is the Seasons data returned');
+      command.msg.channel.send(data);
+    }
+  })
+}
 
-//
-// client.getSeasonsData(function(status, data){
-//     if(status === 200){
-//         console.log("-- Seasons data:");
-//         console.log(data);
-//     }
-// });
-//
+
 //
 // client.getTiersData(function(status, data){
 //     if(status === 200){
@@ -70,13 +77,6 @@ function rlstats(command) {
 // });
 //
 //
-// client.searchPlayers("Mike", function(status, data){
-//     if(status === 200){
-//         console.log("-- Player Search Data:");
-//         console.log("   Results: " + data.results);
-//         console.log("   Total Results: " + data.totalResults);
-//     }
-// });
 //
 // client.getRankedLeaderboard(rls.rankedPlaylists.DUEL, function(status, data){
 //     if(status === 200){

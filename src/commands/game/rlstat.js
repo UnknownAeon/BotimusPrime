@@ -3,7 +3,7 @@
  */
 
 var rls = require('rls-api');
-var bot = require('../../bot.js');
+var discord = require('discord.js');
 
 var client = new rls.Client({
   token: "9IW66CIWOE8GS24D34M3BRZGD608GWWO"

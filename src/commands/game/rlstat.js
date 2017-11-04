@@ -39,8 +39,8 @@ function rlstats(command) {
                 .addField("**__Shot/Goal Ratio__**", scorepercentage)
                 .addField("**__Times MVP__**", data.stats.mvps)
                 .addField("**__Saves__**", saves)
-                .addField("**__Assists__**", assists);
-                .addBlankField(true);
+                .addField("**__Assists__**", assists)
+                .addBlankField(true)
                 .addField("**__PLAYER EFFICIENCY__**", playerEfficiency);
 
               command.msg.channel.send({embed});

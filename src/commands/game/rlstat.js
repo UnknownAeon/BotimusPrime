@@ -18,7 +18,7 @@ function rlstats(command) {
       client.getPlayer(player, rls.platforms.STEAM, function(status, data){
           if(status === 200){
               var avatar = data.avatar;
-              var scorepercentage = parseFloat()(parseInt(data.stats.goals) / parseInt(data.stats.shots)) * 100).toFixed(2);
+              var scorepercentage = parseFloat((parseInt(data.stats.goals) / parseInt(data.stats.shots)) * 100).toFixed(2);
               var goals = parseInt(data.stats.goals);
               var assists = parseInt(data.stats.assists);
               var saves = parseInt(data.stats.saves);

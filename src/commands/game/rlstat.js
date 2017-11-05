@@ -122,6 +122,7 @@ if (command.arg === 'season') {
 module.exports = {
   rlstats : rlstats,
   info : {
+    argNum : 1,
     name :  "rlstats",
     usage:  "!rlstats [command] [command parameter]",
     desc  : "Perform some stat crunching. Available commands are:\ninfo, search"

@@ -11,6 +11,11 @@ var client = new rls.Client({
 
 
 function rlstats(command) {
+
+  if (command.arg === undefined) {
+    command.msg.channel.send("usage: info <player>, search <player ID>,  ");
+  }
+
   if (command.arg === 'info') {
     if (command.subarg !== undefined) {
       var player = command.subarg;
@@ -125,6 +130,7 @@ module.exports = {
     argNum : 1,
     name :  "rlstats",
     usage:  "!rlstats [command] [command parameter]",
-    desc  : "Perform some stat crunching. Available commands are:\ninfo, search"
+    desc  : "Perform some stat crunching. Available commands are:\ninfo, search",
+  
   }
 }

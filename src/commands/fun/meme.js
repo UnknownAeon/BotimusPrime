@@ -50,7 +50,7 @@ var memeSpeak = function(command) {
 }
 
 module.exports = {
-  memeSpeak : memeSpeak
+  memeSpeak : memeSpeak,
   info : {
       argNum : 2,
       name : 'meme speak',

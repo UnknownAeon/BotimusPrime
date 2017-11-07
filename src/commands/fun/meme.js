@@ -56,7 +56,7 @@ module.exports = {
       name : 'meme speak',
       usage : '!memespeak',
       args : ['earthquake', 'meow', 'sprinkler', 'dad'],
-      subargs : [null, null, null, ['number of dads']]
+      subargs : [null, null, null, ['number of dads']],
       desc : 'commands the bot to speak a text meme via tts.'
   }
 };

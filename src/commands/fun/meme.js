@@ -51,4 +51,12 @@ var memeSpeak = function(command) {
 
 module.exports = {
   memeSpeak : memeSpeak
+  info : {
+      argNum : 2,
+      name : 'meme speak',
+      usage : '!memespeak',
+      args : ['earthquake', 'meow', 'sprinkler', 'dad'],
+      subargs : [null, null, null, ['number of dads']]
+      desc : 'commands the bot to speak a text meme via tts.'
+  }
 };

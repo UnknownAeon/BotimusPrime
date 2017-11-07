@@ -21,4 +21,5 @@ client.on('message', function(msg) {
 });
 
 // The bot's client id info.
+// Changed it because leak.
 client.login('MzQ3OTA2MjM3MjM0NTQ0Njcw.DOOeGg.52shWaAryswrN6WArO9I2RAU9R8');

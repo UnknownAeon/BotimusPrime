@@ -3,6 +3,7 @@
  */
 
 var rls = require('rls-api');
+var Discord = require('discord.js');
 
 var client = new rls.Client({
   token: "9IW66CIWOE8GS24D34M3BRZGD608GWWO"
@@ -10,52 +11,93 @@ var client = new rls.Client({
 
 
 function rlstats(command) {
-  if (command.arg == 'dev') {
-    client.getPlayer("76561198033338223", rls.platforms.STEAM, function(status, data){
-        if(status === 200){
-            command.msg.reply("\n-- Player Data:\n" +
-            "   Display name: " + data.displayName + "\n" +
-            "   Goals: " + data.stats.goals);
-          }
-        });
-      }
 
-  if (command.arg == 'dev2') {
+  if (command.arg === undefined) {
+    command.msg.channel.send("usage: info <player>, search <player ID>,  ");
+  }
+
+  if (command.arg === 'info') {
+    if (command.subarg !== undefined) {
+      var player = command.subarg;
+      command.msg.channel.send('Creating player card for ' + player + ', please wait.')
+      client.getPlayer(player, rls.platforms.STEAM, function(status, data){
+          if(status === 200){
+              var avatar = data.avatar;
+              var scorepercentage = parseFloat((parseInt(data.stats.goals) / parseInt(data.stats.shots)) * 100).toFixed(2);
+              var goals = parseInt(data.stats.goals);
+              var assists = parseInt(data.stats.assists);
+              var saves = parseInt(data.stats.saves);
+              var shots = parseInt(data.stats.shots);
+              var playerEfficiency = (goals * 1) + (assists * 0.8) + (saves * 0.7)
+                + (shots * 0.5) + ((goals/shots) * 0.6);
+
+
+              const embed = new Discord.RichEmbed()
+                .setColor(0x00AE86)
+                .setTitle("Player data for: " + player)
+                .setThumbnail(avatar)
+                .addField("**__Display name__**", data.displayName)
+                .addField("**__Wins__**", data.stats.wins)
+                .addField("**__Goals__**", goals)
+                .addField("**__Shots__**", shots)
+                .addField("**__Shot/Goal Ratio__**", scorepercentage + "%")
+                .addField("**__Times MVP__**", data.stats.mvps)
+                .addField("**__Saves__**", saves)
+                .addField("**__Assists__**", assists)
+                .addBlankField(true)
+                .addField("**__PLAYER EFFICIENCY__**", playerEfficiency);
+
+              command.msg.channel.send({embed});
+            }
+          else {
+            command.msg.reply(player + " was not found. Please enter Unique Steam ID number or name.");
+          }
+          });
+    }
+    else {
+      command.msg.reply('Please specify a player.')
+    }
+  }
+
+
+  if (command.arg === 'dev2') {
     client.getPlaylistsData(function(status, data) {
       if (status === 200) {
         command.msg.reply("\n-- Playlist Data:");
 
-        var jsonContents = JSON.parse(data);
-
-        for (var i = 0; i < jsonContents.length; i++) {
-          command.msg.reply(jsonContents.name);
-        }
+        console.log(data);
 
       }
 
     });
   }
 
-  if (command.arg == 'search') {
-    client.searchPlayers("Mike", function(status, data){
+  if (command.arg === 'search') {
+    var player = command.subarg;
+    client.searchPlayers(player, function(status, data){
     if(status === 200){
-        command.msg.reply("-- Player Search Data:");
-        command.msg.reply("   Results: " + data.results);
-        command.msg.reply("   Total Results: " + data.totalResults);
+        command.msg.channel.send("**__Player Search Data:__**");
+        command.msg.channel.send("\tResults: " + data.results);
+        command.msg.channel.send("\tTotal Results: " + data.totalResults);
     }
     });
   }
+
+
+if (command.arg === 'season') {
+  client.getSeasonsData(function(status, data) {
+    if (status === 200) {
+      command.msg.reply('This is the Seasons data returned');
+      command.msg.channel.send(data);
+      console.log(data);
+    }
+  });
 }
 
 
-//
-// client.getSeasonsData(function(status, data){
-//     if(status === 200){
-//         console.log("-- Seasons data:");
-//         console.log(data);
-//     }
-// });
-//
+
+} //end of command parsing
+
 //
 // client.getTiersData(function(status, data){
 //     if(status === 200){
@@ -65,13 +107,6 @@ function rlstats(command) {
 // });
 //
 //
-// client.searchPlayers("Mike", function(status, data){
-//     if(status === 200){
-//         console.log("-- Player Search Data:");
-//         console.log("   Results: " + data.results);
-//         console.log("   Total Results: " + data.totalResults);
-//     }
-// });
 //
 // client.getRankedLeaderboard(rls.rankedPlaylists.DUEL, function(status, data){
 //     if(status === 200){
@@ -90,5 +125,12 @@ function rlstats(command) {
 // });
 
 module.exports = {
-  rlstats : rlstats
-};
+  rlstats : rlstats,
+  info : {
+    argNum : 1,
+    name :  "rlstats",
+    usage:  "!rlstats [command] [command parameter]",
+    desc  : "Perform some stat crunching. Available commands are:\ninfo, search",
+  
+  }
+}

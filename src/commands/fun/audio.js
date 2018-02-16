@@ -18,6 +18,9 @@ var audio = function(command) {
   if (command.arg == 'gg') {
     if (command.subarg == 'sandstorm') playAudio('sandstorm.mp3', command);
   }
+  else if (command.arg == 'dbd') {
+    if (command.subarg == 'job') playAudio('pretty_good_JOB.wav', command);
+  }
   // Happy Souls category of audio files.
   else if (command.arg == 'hs') {
     if (command.subarg == 'bossweapons') playAudio('happysouls/boss_weapons.mp3', command);

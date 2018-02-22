@@ -33,6 +33,9 @@ var audio = function(command) {
   else if (command.arg == 'sb') {
     if (command.subarg == 'conch') playAudio('conch.mp3', command);
   }
+  else if (command.arg == 'misc') {
+    if (command.subarg == 'cocaine') playAudio('cocaine.mp3', command);
+  }
 }
 /**
  * Play a specific sound clip as passed in by the audio function.
